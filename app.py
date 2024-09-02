@@ -11,7 +11,7 @@ from ultralytics import YOLO
 app = Flask(__name__)
 
 # Model loading (assuming the model file is in the same directory)
-model_path = os.path.abspath('/Users/khan/PycharmProjects/mini_project/pythonProject/best.pt')
+model_path = os.path.abspath('./best.pt')
 model = torch.load(model_path)
 
 # Function to preprocess an image for prediction
@@ -50,7 +50,7 @@ def predict():
 
         # Make prediction (disable gradient calculation for efficiency)
         with torch.no_grad():
-            yolo = YOLO('/Users/khan/PycharmProjects/mini_project/pythonProject/best.pt')
+            yolo = YOLO('./best.pt')
             print("Hello")
             prediction = yolo.predict(normalized_tensor)
             #print(prediction)
